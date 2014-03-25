@@ -7,7 +7,7 @@ my $format2 = shift;
 
 use Bio::AlignIO;
 
-my $in = Bio::AlignIO->newFh('-format' => $format1 );
-my $out = Bio::AlignIO->newFh('-format' => $format2 );
+my $in = Bio::AlignIO->newFh( -fh => \*STDIN, '-format' => $format1 );
+my $out = Bio::AlignIO->newFh(-fh => \*STDOUT, '-format' => $format2 );
 
 print $out $_ while <$in>;
